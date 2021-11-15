@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Worker</h1>
+{% block content %}
+<table border = '1' cellpadding="5px">
+    <tr style="background : green; color; whites;">
+       <td>ID</td>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Age</td>
+        <td>Company</td>
+        <td>Salary</td>
+        <td>Delete</td>
+    </tr>
+    {% for human in all_humans %}
+    <tr>
+        <td>{{human.pk}}</td>
+        <td>{{human.name}}</td>
+        <td>{{human.surname}}</td>
+        <td>{{human.age}}</td>
+        <td>{{human.company}}</td>
+        <td>{{human.salary}}</td>
+        <td><a href="{% url 'delete-form' human.pk %}" class= "btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+</body>
+</html>
